@@ -1,0 +1,17 @@
+
+.header {
+width:100%;
+background-size:cover;
+}
+
+.container.full {
+  width: 400px;
+  margin: 0 auto;
+  background-color: #66ffff;
+}
+.banos {
+background-size: 100%;
+background-repeat: no-repeat;
+background-origin: padding-box;
+background-position:top center;
+}

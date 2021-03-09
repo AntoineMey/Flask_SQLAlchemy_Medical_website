@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+<br>
+<br>
+<br>
+
+<h2> DANS LA CATEGORIE RADIOGRAPHIE </h2>
+
+<hr>
+
+{% for post in posts %}
+{% if post.category == 'Radiographie' %}
+
+<br>
+<h2> {{ post.title }} </h2>
+<p> Rédigé par {{ post.author.username }}, le {{ post.date_posted.strftime('%Y-%m-%d') }} </p>
+<p> {{ post.content }} </p>
+{% if post.author == current_user %}
+<div>
+    <a class="btn-secondary btn-sm m-1" href="{{ url_for('update_post', post_id=post.id) }}">Update</a>
+</div>
+
+
+<form action="{{ url_for('delete_post', post_id = post.id) }}" method="POST">
+    <input class="btn btn-danger" type="submit" value="Delete">
+
+</form>
+
+{% endif %}
+<br>
+{% if current_user.is_authenticated %}
+     <a href="mailto:{{ post.user_id.email }}">Contactez l'hôpital propriétaire</a>
+{% endif %}
+<br>
+<hr>
+{% endif %}
+{% endfor %}
+
+<br> {% endblock %}
