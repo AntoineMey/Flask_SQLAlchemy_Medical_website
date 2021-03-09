@@ -12,13 +12,13 @@
 Clone the repo :  
 `git clone git@github.com:antoine-epitech/Flask_SQLAlchemy_website.git`
 
-Install the required dependencies : 
+Install the required dependencies :    
 `pip install -r requirements.txt`
 
-Go to app directory : 
+Go to app directory :    
 `cd flaskappli`
 
-Run the app : 
+Run the app :    
 `python3 run.py`
 
 
