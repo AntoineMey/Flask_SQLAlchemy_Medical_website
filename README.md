@@ -12,6 +12,9 @@
 Clone the repo :  
 `git clone git@github.com:antoine-epitech/Flask_SQLAlchemy_website.git`
 
+Install the required dependencies : 
+`pip install -r requirements.txt`
+
 Go to app directory : 
 `cd flaskappli`
 
