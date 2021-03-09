@@ -7,6 +7,8 @@
 
 ------
 
+![alt text](https://github.com/antoine-epitech/Flask_SQLAlchemy_website/blob/main/flaskappli/templates/images/home_page_.png "Preview Home Page")
+
 #### To install and run 
 
 Clone the repo :  
