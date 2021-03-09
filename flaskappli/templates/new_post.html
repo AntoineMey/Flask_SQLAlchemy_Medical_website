@@ -1,0 +1,82 @@
+{% extends "layout.html" %} {% block content %}
+
+<div class="content-section">
+
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4"> Ajouter un appareil </legend>
+            <div class="form-group">
+                {{ form.title.label(class="form-control-label") }} {% if form.title.errors %} {{ form.title(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.title.errors %}
+                    <span>{{ error }}</span> {% endfor %}
+                </div>
+                {% else %} {{ form.title(class="form-control form-control-lg") }} {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.content.label(class="form-control-label") }} {% if form.content.errors %} {{ form.content(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.content.errors %}
+                    <span>{{ error }}</span> {% endfor %}
+                </div>
+                {% else %} {{ form.content(class="form-control form-control-lg") }} {% endif %}
+            </div>
+
+<!--  {{ form.category }} -->
+<label for="category">Choisissez une catégorie de matériel:</label>
+<br>
+<select {{ form.category }} methods="GET, POST">
+  <option value="IRM">IRM</option>
+  <option value="Scanner">Scanner</option>
+  <option value="Radiographie">Radiographie</option>
+  <option value="Echographie">Echographie</option>
+</select>
+  </div>
+
+
+<!--
+  <label for="image">Choisissez une image:</label>
+      <form action="" method = "post" enctype="multipart/form-data">
+              <input type="file" name="file" />
+              <input type = "submit">
+          </form>
+-->
+
+<!--
+       <div class="form-group">
+         {{ form.image }}
+         <label>Select image</label>
+
+-->
+
+<!--
+         <div class="custom-file">
+
+           <input type="file" class="custom-file-input" name="image" id="image">
+           <label class="custom-file-label" for="image">Select image...</label>
+         </div>
+       </div>
+
+       <button type="submit" class="btn btn-primary">Upload</button>
+-->
+
+        </fieldset>
+
+        <br>
+        <br>
+        <br>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+        <div class="border-top pt-3">
+
+        </div>
+    </form>
+
+
+
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,65 @@
+{% extends "layout.html" %} {% block content %}
+<h1> Bonjour {{ current_user.username }}</h1>
+
+<br>
+<br>
+
+<div class="content-section">
+
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <h2>Informations de compte</h2>
+            <hr>
+            <br>
+            <div class="form-group">
+                {{ form.username.label(class="form-control-label") }} {% if form.username.errors %} {{ form.username(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.username.errors %}
+                    <span>{{ error }}</span> {% endfor %}
+                </div>
+                {% else %} {{ form.username(class="form-control form-control-lg") }} {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.email.label(class="form-control-label") }} {% if form.email.errors %} {{ form.email(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.email.errors %}
+                    <span>{{ error }}</span> {% endfor %}
+                </div>
+                {% else %} {{ form.email(class="form-control form-control-lg") }} {% endif %}
+            </div>
+        </fieldset>
+
+        <div class="form-group">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+
+<br>
+<br>
+<h2> Mes propositions de matériel </h2>
+<hr>
+{% for post in posts %}
+{% if post.author == current_user %}
+
+    <br>
+    <h2> <a class="post-title" href="{{ url_for('post', post_id=post.id) }}"> {{ post.title }} </a> </h2>
+    <p> Rédigé par {{ post.author.username }}, le {{ post.date_posted.strftime('%Y-%m-%d') }} </p>
+    <p> {{ post.content }} </p>
+
+<div>
+    <a class="btn-primary btn-sm m-1" href="{{ url_for('update_post', post_id=post.id) }}">Update</a>
+
+
+<form action="{{ url_for('delete_post', post_id = post.id) }}" method="POST">
+    <input class="btn btn-danger m-1" type="submit" value="Delete">
+</form>
+
+<hr>
+</div>
+{% endif %}
+{% endfor %}
+
+</div>
+
+{% endblock content %}
