@@ -2,7 +2,7 @@
 
 #### Using Python, Flask, SQLAlchemy, Bcrypt : 
 - Securized Login / Registration process
-- User CRUD
+- Users CRUD
 - Ads CRUD
 
 ------
